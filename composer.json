@@ -98,7 +98,7 @@
         }
     },
     "require-dev": {
-        "doctrine/doctrine-fixtures-bundle": "^4.3",
+        "doctrine/doctrine-fixtures-bundle": "^4.3.1",
         "phpunit/phpunit": "^13.0.2",
         "symfony/browser-kit": "8.0.*",
         "symfony/css-selector": "8.0.*",
@@ -107,7 +107,7 @@
         "symfony/stopwatch": "8.0.*",
         "symfony/web-profiler-bundle": "8.0.*",
         "xefi/faker-php": "^1.5",
-        "xefi/faker-php-images": "^1.0",
-        "xefi/faker-php-locales-fr-fr": "^1.1"
+        "xefi/faker-php-images": "^1.0.1",
+        "xefi/faker-php-locales-fr-fr": "^1.1.4"
     }
 }
