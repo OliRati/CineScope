@@ -7,7 +7,13 @@
 
     {{ form_errors(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
+		{% if noAdmin %}
+			<p class="lead text-warning"><span class="text-danger">Attention</span> : CinéScope nécéssite d'être initialisé avec au moins un compte administrateur.<br>
+            Pour cela le premier compte crée sera l'administrateur du système.
+			</p>
+		{% endif %}
+
+        {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
