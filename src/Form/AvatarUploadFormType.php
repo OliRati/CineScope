@@ -11,15 +11,16 @@ class AvatarUploadFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('affiche', FileType::class, [
-            'label' => 'Affiche du film',
+        $builder->add('avatar', FileType::class, [
+            'label' => 'Avatar (JPEG ou PNG)',
             'mapped' => false,   // IMPORTANT
             'required' => false,
             'constraints' => [
-                new File([
-                    'maxSize' => '5M',
-                    'mimeTypes' => ['image/jpeg', 'image/png'],
-                ])
+                new File(
+                    maxSize: '5M',
+                    mimeTypes: ['image/jpeg', 'image/png'],
+                    mimeTypesMessage: 'Veuillez uploader une image JPEG ou PNG',
+                )
             ],
         ]);
     }

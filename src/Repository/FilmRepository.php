@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Film;
+use App\Entity\Platforme;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -16,11 +17,24 @@ class FilmRepository extends ServiceEntityRepository
         parent::__construct($registry, Film::class);
     }
 
-       /**
-        * @return Film[] Returns an array of Film objects
-        */
-       public function findByPlatforme( PlatformeRepository $platforme): array
-       {
+    /**
+     * @return Film[] Returns an array of Film objects
+     */
+
+    public function findByPlatforme(Platforme $platforme): array
+    {
+        return $this->createQueryBuilder('f')->join('f.platformes', 'p')->andWhere('p = :platforme')->setParameter('platforme', $platforme)->orderBy('f.id', 'ASC')->getQuery()->getResult();
+/*
+        return $this->createQueryBuilder('f')
+            ->andWhere('f.platforme_id = :val')
+            ->setParameter('val', $platforme)
+            ->orderBy('f.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+*/
+        /*
            return $this->createQueryBuilder('f')
                ->andWhere('f.platforme = :val')
                ->setParameter('val', $platforme)
@@ -29,7 +43,8 @@ class FilmRepository extends ServiceEntityRepository
                ->getQuery()
                ->getResult()
            ;
-       }
+        */
+    }
 
     //    public function findOneBySomeField($value): ?Film
     //    {

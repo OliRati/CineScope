@@ -1,18 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello Profile
-Controller!{% endblock %}
+		Controller!
+{% endblock %}
 
 {% block body %}
-<p>{{ user.email }} </p>
-{% if user.avatar %}
-<img src="{{ user.avatar }}" alt="">
-{% endif %}
-<form action="{{ path('app_profile_avatar')}}" method="POST">
-<div>
-      <label for="formFile" class="form-label mt-4">Avatar</label>
-      <input class="form-control" type="file" name="avatar" id="formFile">
-    </div>
-<button type="submit">Envoyer</button>
-</form>
+
+	<h1>Votre profil</h1>
+
+	<p>Email :
+		{{ user.email }}
+	</p>
+	{% if user.avatar %}
+		<div style="width: 5rem; background-color: #333">
+			<img style="width: 5rem;" src="{{ asset('uploads/avatars/' ~ user.avatar) }}" alt="">
+		</div>
+		<a href="{{ path('app_profile_avatar') }}">Modifier votre avatar</a>
+	{% else %}
+		<a href="{{ path('app_profile_avatar') }}">Ajouter un avatar</a>
+	{% endif %}
+
 {% endblock %}

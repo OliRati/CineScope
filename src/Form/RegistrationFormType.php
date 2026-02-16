@@ -43,6 +43,20 @@ class RegistrationFormType extends AbstractType
                     ),
                 ],
             ])
+            /*
+            ->add('avatar', FileType::class, [
+                'label' => 'Avatar (JPEG ou PNG)',
+                'mapped' => false, // important !
+                'required' => false,
+                'constraints' => [
+                    new File(
+                        maxSize: '2M',
+                        mimeTypes: ['image/jpeg', 'image/png'],
+                        mimeTypesMessage: 'Veuillez uploader une image JPEG ou PNG',
+                    ),
+                ],
+            ])
+            */
         ;
     }
 
