@@ -77,18 +77,6 @@ class Film
         return $this;
     }
 
-    public function getRelation(): ?string
-    {
-        return $this->relation;
-    }
-
-    public function setRelation(string $relation): static
-    {
-        $this->relation = $relation;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Platforme>
      */
