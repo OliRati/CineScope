@@ -1,7 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Bienvenue sur CinéScope{% endblock %}
 
 {% block body %}
-<h1>Home</h1>
+<div class="text-center mt-5">
+
+    <h1 class="display-4 fw-bold">🎬 Bienvenue sur CinéScope</h1>
+
+    <p class="lead mt-3">
+        Votre guide pour découvrir où regarder vos films préférés légalement.
+    </p>
+
+    <p class="text-muted">
+        Recherchez un film et découvrez sur quelles plateformes
+        il est disponible : Netflix, Prime Video, Disney+ et plus encore.
+    </p>
+
+    <div class="mt-4">
+        <a href="{{ path('app_film_index') }}" class="btn btn-primary btn-lg me-2">
+            Voir les films
+        </a>
+
+        <a href="{{ path('app_platforme_index') }}" class="btn btn-outline-secondary btn-lg">
+            Voir les plateformes
+        </a>
+    </div>
+
+</div>
+
+<hr class="my-5">
+
+<div class="row text-center">
+    <div class="col-md-4">
+        <h3>🔍 Recherche facile</h3>
+        <p>Trouvez rapidement où regarder un film.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>📺 Plateformes légales</h3>
+        <p>Découvrez les services de streaming disponibles.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>🎥 Catalogue complet</h3>
+        <p>Explorez des films disponibles sur plusieurs plateformes.</p>
+    </div>
+</div>
+
 {% endblock %}
