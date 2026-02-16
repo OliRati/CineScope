@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Profile
+			Controller!
+{% endblock %}
+
+{% block body %}
+
+	{{ form_start(avatarForm) }}
+	{{ form_row(avatarForm.avatar) }}
+
+	<button type="submit" class="btn btn-lg btn-primary">Modifier</button>
+	{{ form_end(avatarForm) }}
+
+{% endblock %}
