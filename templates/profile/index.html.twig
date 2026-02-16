@@ -1,23 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello Profile
-		Controller!
-{% endblock %}
+{% block title %}Mon Profile{% endblock %}
 
 {% block body %}
+<div class="container mt-5 d-flex justify-content-center">
 
-	<h1>Votre profil</h1>
+    <div class="card text-center shadow-lg border-primary"
+         style="width: 22rem; background: rgba(20,10,40,.95);">
 
-	<p>Email :
-		{{ user.email }}
-	</p>
-	{% if user.avatar %}
-		<div style="width: 5rem; background-color: #333">
-			<img style="width: 5rem;" src="{{ asset('uploads/avatars/' ~ user.avatar) }}" alt="">
-		</div>
-		<a href="{{ path('app_profile_avatar') }}">Modifier votre avatar</a>
-	{% else %}
-		<a href="{{ path('app_profile_avatar') }}">Ajouter un avatar</a>
-	{% endif %}
+        <div class="card-header bg-transparent border-primary">
+            <h4 class="mb-0 text-white">Profile</h4>
+        </div>
 
+        <div class="card-body text-white">
+
+            <p class="text-muted mb-1">Email</p>
+            <h6 class="text-info mb-4">{{ user.email }}</h6>
+
+            {% if user.avatar %}
+                <img src="{{ asset('uploads/avatars/' ~ user.avatar) }}"
+                     class="rounded-circle mb-3 border border-info shadow"
+                     width="100" height="100"
+                     style="object-fit: cover;"
+                     alt="Avatar">
+
+                <div>
+                    <a href="{{ path('app_profile_avatar') }}"
+                       class="btn btn-outline-info btn-sm">
+                        Modifier votre avatar
+                    </a>
+                </div>
+            {% else %}
+                <a href="{{ path('app_profile_avatar') }}"
+                   class="btn btn-outline-info btn-sm">
+                    Ajouter un avatar
+                </a>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
 {% endblock %}
