@@ -1,31 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ film.title }}{% endblock %}
+{% block title %}
+	{{ film.title }}
+{% endblock %}
 
 {% block body %}
-<h1>{{ film.title }}</h1>
+	<h1>{{ film.title }}</h1>
 
-<p><strong>Année :</strong> {{ film.releaseYear }}</p>
+	<p>
+		<strong>Année :</strong>
+		{{ film.releaseYear }}</p>
 
-{% if film.synopsis %}
-    <p>{{ film.synopsis }}</p>
-{% endif %}
+	{% if film.synopsis %}
+		<p>{{ film.synopsis }}</p>
+	{% endif %}
 
-<h3>Disponible sur :</h3>
+	<h3>Disponible sur :</h3>
 
-<ul>
-    {% for platforme in film.platforme %}
-        <li class="platform-name">
-            <img src="{{ platforme.logo }}" width="40">
-            <a href="{{ platforme.url }}" target="_blank">
-                {{ platforme.name }}
-            </a>
-        </li>
-    {% else %}
-        <li>Aucune plateforme disponible.</li>
-    {% endfor %}
-</ul>
+	<ul>
+		{% for platforme in film.platforme %}
+			<li class="platform-name">
+				{% if platforme.logo %}
+					<img src="{{ asset('uploads/logos/' ~ platforme.logo) }}" width="40">
+				{% else %}
+					<div style="width: 10rem; height: 10rem; background-color: #777"></div>
+				{% endif %}
+				<a href=" {{ platforme.url }} " target=" _blank">
+					{{ platforme.name }}
+				</a>
+			</li>
+		{% else %}
+			<li>Aucune plateforme disponible.</li>
+		{% endfor %}
+	</ul>
 
-<a href="{{ path('app_film_index') }}">← Retour</a>
+	<a href="{{ path('app_film_index') }}">← Retour</a>
 
 {% endblock %}
